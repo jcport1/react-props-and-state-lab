@@ -15,6 +15,18 @@ class App extends React.Component {
     }
   }
 
+  filter = event => {
+    this.setState({
+      filters: event.target.value 
+    })
+  }
+
+  findPets = event => {
+    event.preventDefault()
+    //fetch all pets API
+
+  }
+
   render() {
     return (
       <div className="ui container">
@@ -24,10 +36,10 @@ class App extends React.Component {
         <div className="ui container">
           <div className="ui grid">
             <div className="four wide column">
-              <Filters />
+              <Filters onChangeType={this.filter} onFindPetsClick={this.findPets}  />
             </div>
             <div className="twelve wide column">
-              <PetBrowser />
+              <PetBrowser/>
             </div>
           </div>
         </div>
